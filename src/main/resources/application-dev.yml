@@ -1,0 +1,31 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views
+      suffix: .html
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=UTF-8
+    username: root
+    password:
+    dbcp2:
+          initial-size: 5
+          max-total: 10
+          min-idle: 1
+          time-between-eviction-runs-millis: 360000
+          test-on-borrow: true
+          test-on-return: false
+          test-while-idle: true
+          validation-query: SELECT 1
+  jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: create
+      database: mysql
+      open-in-view: true
+      properties:
+        hibernate:
+          enable_lazy_load_no_trans: true
+server:
+  session:
+    timeout: 1200
