@@ -29,7 +29,7 @@ public class TeacherServiceImpl implements TeacherService {
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void addTeacher2(Teacher teacher) {
         teacherRepository.save(teacher);
-        //        throw new RuntimeException();
+        throw new RuntimeException();
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)

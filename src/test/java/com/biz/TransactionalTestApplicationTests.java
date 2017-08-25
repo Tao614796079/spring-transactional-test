@@ -45,7 +45,6 @@ public class TransactionalTestApplicationTests {
     /**
      * 经测试如果在addStudent2中抛出异常，学生数据不能正确提交，教师信息被正确提交。
      *  Propagation.REQUIRES_NEW是在事务中新起一个事务
-     *  如果在addTeacher2中抛出异常,异常会一直抛到最外面，学生和教师数据均回滚
      *
      *  注意：如果调用的是同一个类里面的方法，REQUIRES_NEW不会生效；
      */

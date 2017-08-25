@@ -36,8 +36,12 @@ public class StudentServiceImpl implements StudentService {
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void addStudent2(Student student, Teacher teacher) {
         studentRepository.save(student);
-        teacherService.addTeacher2(teacher);
-        throw new RuntimeException();
+        //一定要用try{}catch{}捕获异常，否则异常会抛到最外面，使整个方法回滚
+        try {
+            teacherService.addTeacher2(teacher);
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)
